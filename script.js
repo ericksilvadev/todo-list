@@ -29,8 +29,14 @@ taskList.addEventListener('click', (event) => {
 
 taskList.addEventListener('dblclick', (event) => {
   const evt = event.target;
+  if (evt.classList.contains('completed')) {
+    evt.classList.remove('completed');
+  } else {
+    evt.classList.add('completed');
+  }
   // for (let index = 0; index < task.length; index += 1) {
-  //   task[index].classList.remove('selected');
+  //   if (task[index].classList.contains('completed')) {
+  // task[index].classList.remove('completed');
+  //   }
   // }
-  evt.classList.add('completed');
 });
