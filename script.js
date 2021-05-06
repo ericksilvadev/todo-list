@@ -8,7 +8,7 @@ const taskList = document.querySelector('.task-list');
 
 addBtn.addEventListener('click', () => {
   const newTask = document.createElement('li');
-  newTask.classList.add('task');
+  // newTask.classList.add('task');
   newTask.innerHTML = taskTxt.value;
   taskList.appendChild(newTask);
   taskTxt.value = '';
@@ -46,9 +46,20 @@ rmvAllBtn.addEventListener('click', () => {
 // apagar tarefas finalizadas
 
 rmvBtn.addEventListener('click', () => {
-  for (let index = 0; index < task.length; index += 1) {
-    if (task[index].classList.contains('completed')) {
-      taskList.removeChild(task[index]);
-    }
+  const completesTasks = document.getElementsByClassName('completed');
+  for (let index = completesTasks.length - 1; index >= 0; index -= 1) {
+    taskList.removeChild(completesTasks[index]);
   }
+  // let teste = task.length;
+  // for (let index = 0; index < teste; index += 1) {
+  //   console.log(teste);
+  //   // console.log(task[index].classList);
+  //   if (task[index]) {
+  //     if (task[index].classList.contains('completed')) {
+  //       taskList.removeChild(task[index]);
+  //       console.log('tarefa removida');
+  //     }
+  //   }
+  //   console.log('teste', task);
+  // }
 });
