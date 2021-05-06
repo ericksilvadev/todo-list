@@ -13,9 +13,14 @@ addBtn.addEventListener('click', () => {
   taskList.appendChild(newTask);
 });
 
+const task = document.getElementsByTagName('li');
+
 // trocar background de item clicado
 
 taskList.addEventListener('click', (event) => {
   const evt = event.target;
-  evt.style.backgroundColor = 'rgb(128,128,128)';
+  for (let index = 0; index < task.length; index += 1) {
+    task[index].classList.remove('selected');
+  }
+  evt.classList.add('selected');
 });
