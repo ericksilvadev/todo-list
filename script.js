@@ -6,11 +6,9 @@ const taskList = document.querySelector('.task-list');
 
 // criar tarefas novas
 
-function createTask() {
+addBtn.addEventListener('click', () => {
   const newTask = document.createElement('li');
   newTask.classList.add('task');
   newTask.innerHTML = taskTxt.value;
   taskList.appendChild(newTask);
-}
-
-addBtn.addEventListener('click', createTask);
+});
