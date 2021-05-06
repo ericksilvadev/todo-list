@@ -24,3 +24,13 @@ taskList.addEventListener('click', (event) => {
   }
   evt.classList.add('selected');
 });
+
+// riscar tarefas prontas
+
+taskList.addEventListener('dblclick', (event) => {
+  const evt = event.target;
+  // for (let index = 0; index < task.length; index += 1) {
+  //   task[index].classList.remove('selected');
+  // }
+  evt.classList.add('completed');
+});
