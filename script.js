@@ -12,3 +12,10 @@ addBtn.addEventListener('click', () => {
   newTask.innerHTML = taskTxt.value;
   taskList.appendChild(newTask);
 });
+
+// trocar background de item clicado
+
+taskList.addEventListener('click', (event) => {
+  const evt = event.target;
+  evt.style.backgroundColor = 'rgb(128,128,128)';
+});
