@@ -46,20 +46,8 @@ rmvAllBtn.addEventListener('click', () => {
 // apagar tarefas finalizadas
 
 rmvBtn.addEventListener('click', () => {
-  const completesTasks = document.getElementsByClassName('completed');
-  for (let index = completesTasks.length - 1; index >= 0; index -= 1) {
-    taskList.removeChild(completesTasks[index]);
+  const completedTasks = document.getElementsByClassName('completed');
+  for (let index = completedTasks.length - 1; index >= 0; index -= 1) {
+    taskList.removeChild(completedTasks[index]);
   }
-  // let teste = task.length;
-  // for (let index = 0; index < teste; index += 1) {
-  //   console.log(teste);
-  //   // console.log(task[index].classList);
-  //   if (task[index]) {
-  //     if (task[index].classList.contains('completed')) {
-  //       taskList.removeChild(task[index]);
-  //       console.log('tarefa removida');
-  //     }
-  //   }
-  //   console.log('teste', task);
-  // }
 });
