@@ -11,6 +11,7 @@ addBtn.addEventListener('click', () => {
   newTask.classList.add('task');
   newTask.innerHTML = taskTxt.value;
   taskList.appendChild(newTask);
+  taskTxt.value = '';
 });
 
 const task = document.getElementsByTagName('li');
