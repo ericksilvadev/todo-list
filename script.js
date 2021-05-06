@@ -34,9 +34,20 @@ taskList.addEventListener('dblclick', (event) => {
   } else {
     evt.classList.add('completed');
   }
-  // for (let index = 0; index < task.length; index += 1) {
-  //   if (task[index].classList.contains('completed')) {
-  // task[index].classList.remove('completed');
-  //   }
-  // }
+});
+
+// apagar tudo
+
+rmvAllBtn.addEventListener('click', () => {
+  taskList.innerHTML = '';
+});
+
+// apagar tarefas finalizadas
+
+rmvBtn.addEventListener('click', () => {
+  for (let index = 0; index < task.length; index += 1) {
+    if (task[index].classList.contains('completed')) {
+      taskList.removeChild(task[index]);
+    }
+  }
 });
