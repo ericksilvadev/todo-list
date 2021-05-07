@@ -1,6 +1,6 @@
 body {
   background-color: #e4e4e4;
-  font-family: 'Montserrat', sans-serif;
+  font-family: Montserrat, sans-serif;
   margin: 0px;
 }
 
@@ -61,7 +61,7 @@ p {
   border: none;
   font-size: 2.5rem;
   color: #d84a31;
-  transition: .2s;
+  transition: 0.2s;
 }
 
 .rmv-selected-btn:hover {
@@ -87,7 +87,7 @@ p {
   background: none;
   font-size: 2.3em;
   color: #0073df;
-  transition: .2s;
+  transition: 0.2s;
 }
 
 .arrow:hover {
@@ -117,7 +117,7 @@ p {
 }
 
 .delete-btn,
-.delete-all-btn, 
+.delete-all-btn,
 .save-btn {
   padding: 13px;
   border: none;
@@ -147,7 +147,7 @@ p {
 
 .save-btn {
   background-color: #61d667;
-  transition: .2s;
+  transition: 0.2s;
 }
 
 .save-btn:hover {
