@@ -8,7 +8,7 @@ const taskList = document.querySelector('.task-list');
 
 addBtn.addEventListener('click', () => {
   const newTask = document.createElement('li');
-  // newTask.classList.add('task');
+  newTask.classList.add('task');
   newTask.innerHTML = taskTxt.value;
   taskList.appendChild(newTask);
   taskTxt.value = '';
