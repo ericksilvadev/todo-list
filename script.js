@@ -4,10 +4,16 @@ const rmvAllBtn = document.querySelector('.delete-all-btn');
 const taskTxt = document.getElementById('texto-tarefa');
 const taskList = document.querySelector('.task-list');
 const saveBtn = document.querySelector('.save-btn');
+const mvUp = document.querySelector('.up');
+const rmvSelected = document.querySelector('.rmv-selected-btn');
+const mvDown = document.querySelector('.down');
 
 // criar tarefas novas
 
 function createTask(text) {
+  // if (taskTxt.innerText === '') {
+
+  // }
   const newTask = document.createElement('li');
   newTask.classList.add('task');
   newTask.innerHTML = text;
@@ -95,3 +101,54 @@ function loadTasks() {
 }
 
 loadTasks();
+
+// mover itens cima
+
+function getSelected() {
+  const selected = document.querySelector('.selected');
+  return selected;
+}
+
+mvUp.addEventListener('click', () => {
+  const selected = getSelected();
+  if (!selected) {
+    console.log('falhou');
+    return;
+  }
+  const above = selected.previousSibling;
+  if (!above) {
+    return;
+  }
+  const clone = above.cloneNode(true);
+  above.innerHTML = selected.innerHTML;
+  selected.innerHTML = clone.innerHTML;
+  selected.classList.remove('selected');
+  above.classList.add('selected');
+});
+
+// mover itens baixo
+
+mvDown.addEventListener('click', () => {
+  const selected = getSelected();
+  if (!selected) {
+    console.log('falhou');
+    return;
+  }
+  const below = selected.nextSibling;
+  if (!below) {
+    return;
+  }
+  const clone = below.cloneNode(true);
+  below.innerHTML = selected.innerHTML;
+  selected.innerHTML = clone.innerHTML;
+  selected.classList.remove('selected');
+  below.classList.add('selected');
+});
+
+// faz loop, passa pelas li, ve qual tem selected, clona o previousSibling troca faz vapo vapo sla alguma coisa assim
+
+// remover selecionado
+
+rmvSelected.addEventListener('click', () => {
+  getSelected().remove();
+});

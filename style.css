@@ -30,7 +30,6 @@ p {
 
 .tasks-place {
   min-height: 45vh;
-  display: flex;
   width: 70vw;
   max-width: 850px;
   margin: auto;
@@ -49,10 +48,24 @@ p {
   font-size: 2.5rem;
   color: #0084ff;
   transition: 0.2s;
+  margin-left: 15px;
 }
 
 .create-task-btn:hover {
   color: #0073df;
+  cursor: pointer;
+}
+
+.rmv-selected-btn {
+  background: none;
+  border: none;
+  font-size: 2.5rem;
+  color: #d84a31;
+  transition: .2s;
+}
+
+.rmv-selected-btn:hover {
+  color: #b8422d;
   cursor: pointer;
 }
 
@@ -61,6 +74,29 @@ p {
   vertical-align: middle;
   justify-content: center;
   margin-bottom: 25px;
+}
+
+.arrow-container {
+  width: 50px;
+  float: right;
+  margin-left: 15px;
+}
+
+.arrow {
+  border: none;
+  background: none;
+  font-size: 2.3em;
+  color: #0073df;
+  transition: .2s;
+}
+
+.arrow:hover {
+  cursor: pointer;
+  color: #268be9;
+}
+
+.create .arrow-container {
+  align-self: flex-start;
 }
 
 .add-tasks {
@@ -109,10 +145,20 @@ p {
   background-color: #d84a31;
 }
 
-.rm-btns {
+.save-btn {
+  background-color: #61d667;
+  transition: .2s;
+}
+
+.save-btn:hover {
+  cursor: pointer;
+  background-color: #59c25e;
+}
+
+.btns {
   display: flex;
   justify-content: space-around;
-  max-width: 500px;
+  max-width: 600px;
   margin: auto;
   margin-bottom: 15px;
 }
@@ -123,6 +169,8 @@ p {
   max-width: 500px;
   list-style-type: none;
   padding: 0px;
+  margin: auto;
+  padding-top: 50px;
 }
 
 .task {
@@ -133,6 +181,11 @@ p {
 
 .task:hover {
   cursor: default;
+  background-color: #c7c7c7;
+}
+
+.selected:hover {
+  background-color: grey;
 }
 
 main {

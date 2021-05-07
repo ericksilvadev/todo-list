@@ -22,8 +22,14 @@
     <div class="create">
       <input type="text" name="add-tasks" placeholder="Adicione uma tarefa" class='add-tasks' id="texto-tarefa">
       <button id='criar-tarefa' class="create-task-btn fas fa-plus-circle"></button>
+      <button id="remover-selecionado" class="fas fa-minus-circle rmv-selected-btn"></button>
+      <div class="arrow-container">
+        <button id="mover-cima" class="fas fa-chevron-up up arrow"></button>
+        <button id="mover-baixo" class="fas fa-chevron-down down arrow"></button>
+      </div>
+
     </div>
-    <div class="rm-btns">
+    <div class="btns">
       <button id='apaga-tudo' class="delete-all-btn">Limpar todas as tarefas</button>
       <button id='remover-finalizados' class="delete-btn">Remover tarefas prontas</button>
       <button id="salvar-tarefas" class='save-btn'>Salvar tarefas</button> 
