@@ -145,8 +145,6 @@ mvDown.addEventListener('click', () => {
   below.classList.add('selected');
 });
 
-// faz loop, passa pelas li, ve qual tem selected, clona o previousSibling troca faz vapo vapo sla alguma coisa assim
-
 // remover selecionado
 
 rmvSelected.addEventListener('click', () => {
