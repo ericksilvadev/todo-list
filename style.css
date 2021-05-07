@@ -81,7 +81,8 @@ p {
 }
 
 .delete-btn,
-.delete-all-btn {
+.delete-all-btn, 
+.save-btn {
   padding: 13px;
   border: none;
   font-size: 1em;

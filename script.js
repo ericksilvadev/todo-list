@@ -3,15 +3,21 @@ const rmvBtn = document.querySelector('.delete-btn');
 const rmvAllBtn = document.querySelector('.delete-all-btn');
 const taskTxt = document.getElementById('texto-tarefa');
 const taskList = document.querySelector('.task-list');
+const saveBtn = document.querySelector('.save-btn');
 
 // criar tarefas novas
 
-addBtn.addEventListener('click', () => {
+function createTask(text) {
   const newTask = document.createElement('li');
   newTask.classList.add('task');
-  newTask.innerHTML = taskTxt.value;
+  newTask.innerHTML = text;
   taskList.appendChild(newTask);
   taskTxt.value = '';
+  return newTask;
+}
+
+addBtn.addEventListener('click', () => {
+  createTask(taskTxt.value);
 });
 
 const task = document.getElementsByTagName('li');
@@ -51,3 +57,41 @@ rmvBtn.addEventListener('click', () => {
     taskList.removeChild(completedTasks[index]);
   }
 });
+
+// salvar lista
+
+function save() {
+  if (!Storage) {
+    return;
+  }
+  const getList = [];
+  if (!task.length) {
+    localStorage.removeItem('savedList');
+    return;
+  }
+  for (let index = 0; index < task.length; index += 1) {
+    getList.push({
+      innerText: task[index].innerText,
+      completed: task[index].classList.contains('completed'),
+    });
+  }
+  const savedList = JSON.stringify(getList);
+  localStorage.setItem('taskList', savedList);
+}
+
+saveBtn.addEventListener('click', save);
+
+function loadTasks() {
+  if (!Storage || !localStorage.taskList) {
+    return;
+  }
+  const savedTasks = JSON.parse(localStorage.taskList);
+  for (let index = 0; index < savedTasks.length; index += 1) {
+    const newTask = createTask(savedTasks[index].innerText);
+    if (savedTasks[index].completed) {
+      newTask.classList.add('completed');
+    }
+  }
+}
+
+loadTasks();
