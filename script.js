@@ -7,12 +7,15 @@ const saveBtn = document.querySelector('.save-btn');
 const mvUp = document.querySelector('.up');
 const rmvSelected = document.querySelector('.rmv-selected-btn');
 const mvDown = document.querySelector('.down');
+const error = document.querySelector('.error');
 
 // criar tarefas novas
 
 function createTask(text) {
-  // if (taskTxt.innerText === '') {
-
+  // error.innerHTML = '';
+  // if (!taskTxt.value) {
+  //   // error.innerHTML = 'Digite uma tarefa para adicionar à lista';
+  //   return;
   // }
   const newTask = document.createElement('li');
   newTask.classList.add('task');
@@ -31,11 +34,16 @@ const task = document.getElementsByTagName('li');
 // trocar background de item clicado
 
 taskList.addEventListener('click', (event) => {
+  const selected = getSelected();
   const evt = event.target;
   for (let index = 0; index < task.length; index += 1) {
     task[index].classList.remove('selected');
   }
-  evt.classList.add('selected');
+  // if (selected) {
+    // evt.classList.remove('selected')
+  // } else {
+    evt.classList.add('selected');
+  // }
 });
 
 // riscar tarefas prontas
@@ -59,6 +67,9 @@ rmvAllBtn.addEventListener('click', () => {
 
 rmvBtn.addEventListener('click', () => {
   const completedTasks = document.getElementsByClassName('completed');
+  // if (!completedTasks.length) {
+  //   error.innerHTML = 'Nenhuma';
+  // }
   for (let index = completedTasks.length - 1; index >= 0; index -= 1) {
     taskList.removeChild(completedTasks[index]);
   }
@@ -112,16 +123,24 @@ function getSelected() {
 mvUp.addEventListener('click', () => {
   const selected = getSelected();
   if (!selected) {
-    console.log('falhou');
     return;
   }
-  const above = selected.previousSibling;
+  const above = selected.previousElementSibling;
   if (!above) {
     return;
   }
   const clone = above.cloneNode(true);
   above.innerHTML = selected.innerHTML;
   selected.innerHTML = clone.innerHTML;
+  if (selected.classList.contains('completed') && above.classList.contains('completed')) {
+    console.log('ok');
+  } else if (selected.classList.contains('completed')) {
+    above.classList.add('completed');
+    selected.classList.remove('completed')
+  } else if (above.classList.contains('completed')) {
+    selected.classList.add('completed');
+    above.classList.remove('completed');
+  }
   selected.classList.remove('selected');
   above.classList.add('selected');
 });
@@ -131,16 +150,24 @@ mvUp.addEventListener('click', () => {
 mvDown.addEventListener('click', () => {
   const selected = getSelected();
   if (!selected) {
-    console.log('falhou');
     return;
   }
-  const below = selected.nextSibling;
+  const below = selected.nextElementSibling;
   if (!below) {
     return;
   }
   const clone = below.cloneNode(true);
   below.innerHTML = selected.innerHTML;
   selected.innerHTML = clone.innerHTML;
+  if (selected.classList.contains('completed') && below.classList.contains('completed')) {
+    console.log('ok');
+  } else if (selected.classList.contains('completed')) {
+    below.classList.add('completed');
+    selected.classList.remove('completed');
+  } else if (below.classList.contains('completed')) {
+    selected.classList.add('completed');
+    below.classList.remove('completed');
+  }
   selected.classList.remove('selected');
   below.classList.add('selected');
 });
@@ -149,4 +176,12 @@ mvDown.addEventListener('click', () => {
 
 rmvSelected.addEventListener('click', () => {
   getSelected().remove();
+});
+
+// reconhecer enter para adicionar tarefa
+
+taskTxt.addEventListener('keyup', (event) => {
+  if (event.key === 'Enter') {
+    addBtn.click();
+  }
 });

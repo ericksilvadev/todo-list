@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
   <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link rel="shortcut icon" type="image/jpg" href="./list-ul-solid.svg"/>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">
   <title>Lista de Tarefa</title>
 </head>
@@ -17,12 +18,14 @@
   </header>
   <main>
     <div class="tasks-place">
-      <ol id="lista-tarefas" class="task-list"></ol>
+      <p class="error p"></p>
+      <ol id="lista-tarefas" class="task-list">
+      </ol>
     </div>
     <div class="create">
       <input type="text" name="add-tasks" placeholder="Adicione uma tarefa" class='add-tasks' id="texto-tarefa">
-      <button id='criar-tarefa' class="create-task-btn fas fa-plus-circle"></button>
-      <button id="remover-selecionado" class="fas fa-minus-circle rmv-selected-btn"></button>
+      <button id='criar-tarefa' class="create-task-btn fas fa-plus-circle icon-btn"></button>
+      <button id="remover-selecionado" class="fas fa-minus-circle rmv-selected-btn icon-btn"></button>
       <div class="arrow-container">
         <button id="mover-cima" class="fas fa-chevron-up up arrow"></button>
         <button id="mover-baixo" class="fas fa-chevron-down down arrow"></button>
